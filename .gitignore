@@ -1,0 +1,25 @@
+# OS
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Editors
+.idea/
+.vscode/
+*.swp
+
+# Env (jangan commit secrets)
+.env
+.env.local
+.env.production
+.env.*.local
+
+# Build artifacts (biar ditangani .gitignore tiap subfolder)
+frontend/node_modules/
+frontend/.next/
+frontend/out/
+frontend/*.tsbuildinfo
+
+# Git sub-repo (hapus dulu sebelum init root)
+backend/.git
+frontend/.git

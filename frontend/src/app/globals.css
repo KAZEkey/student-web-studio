@@ -1,0 +1,75 @@
+@import "tailwindcss";
+
+/* Warm editorial — krem hangat, terracotta, tinta hitam.
+   Nama kelas dipertahankan (navy, violet, soft, dll) supaya semua
+   halaman ikut tanpa refactor; nilai berubah ke palet editorial hangat. */
+@theme {
+  --color-navy: #1a1714;        /* ink */
+  --color-violet: #b45309;      /* terracotta */
+  --color-violet-soft: #f7e3d1; /* terracotta wash */
+  --color-soft: #f7f1e6;        /* warm paper */
+  --color-surface: #fffdf9;
+  --color-accent: #3f7a5c;      /* muted sage */
+  --color-line: #e8ddcc;        /* warm hairline */
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--font-serif), var(--font-inter), Georgia, serif;
+  --shadow-card: 0 12px 32px -22px rgb(26 23 20 / 0.28);
+  --shadow-hover: 0 26px 54px -30px rgb(26 23 20 / 0.36);
+}
+
+:root {
+  --background: #f7f1e6;
+  --foreground: #1a1714;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+::selection {
+  background: var(--color-violet);
+  color: #fffdf9;
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-violet);
+  outline-offset: 2px;
+}
+
+.reveal {
+  opacity: 0;
+  transform: translateY(18px);
+  transition:
+    opacity 0.65s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.65s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+
+.reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
